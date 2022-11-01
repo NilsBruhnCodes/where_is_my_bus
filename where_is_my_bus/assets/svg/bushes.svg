@@ -1,0 +1,64 @@
+<svg width="390" height="115" viewBox="0 0 390 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_di_24_450)">
+<rect x="-63" y="5" width="597" height="187" fill="#9CD7A5"/>
+<ellipse cx="350" cy="111.128" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="363.5" cy="97.1276" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="374" cy="112.128" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="378" cy="99.1276" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="190" cy="118.128" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="203.5" cy="104.128" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="214" cy="119.128" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="218" cy="106.128" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="40" cy="121.128" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="53.5" cy="107.128" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="64" cy="122.128" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="68" cy="109.128" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="325.035" cy="37.8672" rx="15" ry="18" transform="rotate(14.526 325.035 37.8672)" fill="#1BA070"/>
+<ellipse cx="341.615" cy="27.7008" rx="11.5" ry="14" transform="rotate(14.526 341.615 27.7008)" fill="#1BA070"/>
+<ellipse cx="348.017" cy="44.855" rx="16" ry="15" transform="rotate(14.526 348.017 44.855)" fill="#1BA070"/>
+<ellipse cx="355.15" cy="33.2738" rx="11" ry="13" transform="rotate(14.526 355.15 33.2738)" fill="#1BA070"/>
+<ellipse cx="272" cy="90.1276" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="285.5" cy="76.1276" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="296" cy="91.1276" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="300" cy="78.1276" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="211.552" cy="66.4298" rx="15" ry="18" transform="rotate(-144 211.552 66.4298)" fill="#1BA070"/>
+<ellipse cx="192.401" cy="69.821" rx="11.5" ry="14" transform="rotate(-144 192.401 69.821)" fill="#1BA070"/>
+<ellipse cx="192.723" cy="51.514" rx="16" ry="15" transform="rotate(-144 192.723 51.514)" fill="#1BA070"/>
+<ellipse cx="181.846" cy="59.6801" rx="11" ry="13" transform="rotate(-144 181.846 59.6801)" fill="#1BA070"/>
+<ellipse cx="29" cy="58.1276" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="42.5" cy="44.1276" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="53" cy="59.1276" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="57" cy="46.1276" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="48.5" cy="69" rx="16.5" ry="8" fill="#1BA070"/>
+<ellipse cx="245.106" cy="31.7632" rx="15" ry="18" transform="rotate(27.6178 245.106 31.7632)" fill="#1BA070"/>
+<ellipse cx="263.558" cy="25.6166" rx="11.5" ry="14" transform="rotate(27.6178 263.558 25.6166)" fill="#1BA070"/>
+<ellipse cx="265.908" cy="43.775" rx="16" ry="15" transform="rotate(27.6178 265.908 43.775)" fill="#1BA070"/>
+<ellipse cx="275.479" cy="34.1105" rx="11" ry="13" transform="rotate(27.6178 275.479 34.1105)" fill="#1BA070"/>
+<ellipse cx="128" cy="38.1276" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="141.5" cy="24.1276" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="152" cy="39.1276" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="156" cy="26.1276" rx="11" ry="13" fill="#1BA070"/>
+<ellipse cx="98" cy="90.1276" rx="15" ry="18" fill="#1BA070"/>
+<ellipse cx="111.5" cy="76.1276" rx="11.5" ry="14" fill="#1BA070"/>
+<ellipse cx="122" cy="91.1276" rx="16" ry="15" fill="#1BA070"/>
+<ellipse cx="126" cy="78.1276" rx="11" ry="13" fill="#1BA070"/>
+</g>
+<defs>
+<filter id="filter0_di_24_450" x="-67" y="5" width="605" height="195" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_24_450"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_24_450" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="4" dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_24_450"/>
+</filter>
+</defs>
+</svg>
