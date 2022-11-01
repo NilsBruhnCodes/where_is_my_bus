@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:where_is_my_bus/home/widgets/timer_countdown.dart';
+
+import 'widgets/popups/cupertino_pop_up.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,19 +17,54 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  late int _startCounter;
+  int _counter = 10;
+
+  void _decrementCounter() {
+    setState(
+      () {
+        _counter--;
+      },
+    );
+  }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        //TODO: implement android PopUp
+        return const CupertinoPopUp();
+      },
+    );
+  }
 
   @override
   void initState() {
     super.initState();
+    _startCounter = _counter;
+
+    Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        _decrementCounter();
+        if (_counter == 0) {
+          timer.cancel();
+          _dialogBuilder(context);
+        }
+      },
+    );
+
     controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      value: _startCounter.toDouble(),
+      lowerBound: 0,
+      upperBound: _startCounter.toDouble(),
+      reverseDuration: Duration(seconds: _counter),
       vsync: this,
     );
-    controller.forward();
+    controller.reverse();
 
     controller.addListener(() {
       setState(() {});
-      print(controller.value);
     });
   }
 
@@ -39,8 +79,11 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           Positioned(
             bottom: 120,
-            left: controller.value * 400 - 200,
-            child: Lottie.asset('assets/bus.json', width: 180),
+            left: 180 - controller.value,
+            child: Lottie.asset(
+              'assets/bus.json',
+              width: 220,
+            ),
           ),
           Positioned(
             bottom: 100,
@@ -51,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen>
             bottom: 0,
             child: SvgPicture.asset('assets/svg/bushes.svg'),
           ),
+          TimerCountdown(counter: _counter, startCounter: _startCounter),
         ],
       ),
     );

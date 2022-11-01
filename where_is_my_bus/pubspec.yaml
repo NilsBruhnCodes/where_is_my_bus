@@ -55,14 +55,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  fonts: 
+    - family: Montserrat
+      fonts: 
+      - asset: fonts/Montserrat-Italic.ttf
   uses-material-design: true
   assets:
-    - images/background_image.jpg
     - assets/bushes.svg
     - assets/shield.svg
     - assets/street.svg
     - assets/bus.json
+  
+
     
  
 
