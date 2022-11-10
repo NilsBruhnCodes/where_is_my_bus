@@ -21,7 +21,7 @@ class TimerCountdown extends StatelessWidget {
     if (time == true) {
       return _counter.toString();
     }
-    return 'sec';
+    return 'secsc';
   }
 
   @override
