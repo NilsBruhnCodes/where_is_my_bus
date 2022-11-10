@@ -4,10 +4,12 @@ import '../../constants.dart';
 
 class SettingsTextField extends StatelessWidget {
   final String text;
+  final void Function(String)? onChanged;
 
   const SettingsTextField({
     Key? key,
     required this.text,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -21,6 +23,7 @@ class SettingsTextField extends StatelessWidget {
         const SizedBox(height: 20),
         Material(
           child: TextField(
+            onChanged: onChanged,
             decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 labelText: text,

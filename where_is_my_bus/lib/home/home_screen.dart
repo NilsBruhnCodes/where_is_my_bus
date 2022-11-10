@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:where_is_my_bus/home/widgets/hamburger_button.dart';
+import 'package:where_is_my_bus/home/widgets/settings_view.dart';
 import 'package:where_is_my_bus/home/widgets/timer_countdown.dart';
 
 import 'widgets/popups/cupertino_pop_up.dart';
@@ -50,8 +50,9 @@ class _HomeScreenState extends State<HomeScreen>
         _decrementCounter();
         if (_counter == 0) {
           timer.cancel();
-          _dialogBuilder(context);
+          //_dialogBuilder(context);
         }
+        //TODO: implement PopUp if wanted
       },
     );
 
@@ -75,10 +76,19 @@ class _HomeScreenState extends State<HomeScreen>
       body: Stack(
         children: [
           Positioned(
-            top: 80,
-            left: 40,
-            child: GestureDetector(child: SettingsView(context: context)),
-          ),
+              top: 80,
+              left: 40,
+              child: GestureDetector(
+                  child: GestureDetector(
+                onTap: () {
+                  showDialog(
+                      builder: (context) {
+                        return SettingsView(context: context);
+                      },
+                      context: context);
+                },
+                child: SvgPicture.asset('assets/svg/hamburger.svg'),
+              ))),
           Positioned(
             bottom: 0,
             child: SvgPicture.asset(

@@ -5,4 +5,5 @@ TextStyle kAppTextStyle = const TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
   fontSize: 100,
+  decoration: TextDecoration.none,
 );
