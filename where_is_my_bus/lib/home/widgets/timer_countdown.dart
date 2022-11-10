@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:where_is_my_bus/constants.dart';
 
 class TimerCountdown extends StatelessWidget {
+  final int _counter;
+
   const TimerCountdown({
     Key? key,
     required int counter,
     required int startCounter,
   })  : _counter = counter,
-        _startCounter = startCounter,
         super(key: key);
 
-  final int _counter;
-  final int _startCounter;
+  String getContentOnCounter(bool time) {
+    if (_counter ~/ 60 > 0) {
+      if (time == true) {
+        return (_counter ~/ 60).toString();
+      }
+      return 'min';
+    }
+    if (time == true) {
+      return _counter.toString();
+    }
+    return 'sec';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,26 +31,23 @@ class TimerCountdown extends StatelessWidget {
       child: Column(
         children: [
           Container(height: 180),
-          SizedBox(
-            height: 200,
-            width: 200,
-            child: Stack(
-              fit: StackFit.expand,
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
               children: [
-                CircularProgressIndicator(
-                  value: _counter / _startCounter,
-                  color: Colors.black,
-                  strokeWidth: 20,
+                Text(
+                  getContentOnCounter(true),
+                  style: kAppTextStyle,
                 ),
-                Center(
-                  child: Text(
-                    _counter.toString(),
-                    style: const TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 40,
-                    ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  getContentOnCounter(false),
+                  style: kAppTextStyle.copyWith(
+                    fontSize: 20,
                   ),
                 ),
               ],

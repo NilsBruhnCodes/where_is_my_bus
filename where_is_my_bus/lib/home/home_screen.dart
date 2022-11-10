@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:where_is_my_bus/home/widgets/hamburger_button.dart';
 import 'package:where_is_my_bus/home/widgets/timer_countdown.dart';
 
 import 'widgets/popups/cupertino_pop_up.dart';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late int _startCounter;
-  int _counter = 10;
+  int _counter = 62;
 
   void _decrementCounter() {
     setState(
@@ -73,6 +74,11 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       body: Stack(
         children: [
+          Positioned(
+            top: 80,
+            left: 40,
+            child: GestureDetector(child: SettingsView(context: context)),
+          ),
           Positioned(
             bottom: 100,
             child: SvgPicture.asset('assets/svg/street.svg'),

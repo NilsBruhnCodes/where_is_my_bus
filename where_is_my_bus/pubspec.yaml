@@ -64,6 +64,8 @@ flutter:
     - assets/bushes.svg
     - assets/shield.svg
     - assets/street.svg
+    - assets/hamburger.svg
+    - assets/Shape.svg
     - assets/bus.json
   
 
