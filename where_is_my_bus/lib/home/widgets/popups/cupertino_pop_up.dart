@@ -9,7 +9,7 @@ class CupertinoPopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
-      title: const Text('Geh jetzt!'),
+      title: const Text('Geh sda jetzt!'),
       content: const Text('Du musst jetzt rausgehen, sonst kommst du zu spät!'),
       actions: <Widget>[
         TextButton(
