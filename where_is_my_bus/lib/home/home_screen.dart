@@ -80,11 +80,14 @@ class _HomeScreenState extends State<HomeScreen>
             child: GestureDetector(child: SettingsView(context: context)),
           ),
           Positioned(
-            bottom: 100,
-            child: SvgPicture.asset('assets/svg/street.svg'),
+            bottom: 0,
+            child: SvgPicture.asset(
+              'assets/svg/bushesAndStreet.svg',
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           Positioned(
-            bottom: 120,
+            bottom: 160,
             left: 180 - controller.value,
             child: Lottie.asset(
               'assets/bus.json',
@@ -95,10 +98,6 @@ class _HomeScreenState extends State<HomeScreen>
             bottom: 100,
             right: 20,
             child: SvgPicture.asset('assets/svg/shield.svg'),
-          ),
-          Positioned(
-            bottom: 0,
-            child: SvgPicture.asset('assets/svg/bushes.svg'),
           ),
           TimerCountdown(counter: _counter, startCounter: _startCounter),
         ],

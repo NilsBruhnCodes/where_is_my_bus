@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:where_is_my_bus/home/widgets/settings_text_field.dart';
 
-import '../../constants.dart';
-
 class SettingsView extends StatelessWidget {
   final BuildContext context;
   const SettingsView({
@@ -30,27 +28,25 @@ class SettingsView extends StatelessWidget {
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Einstellungen',
-                              style: kAppTextStyle.copyWith(
-                                  fontSize: 25,
-                                  color: const Color.fromARGB(82, 0, 0, 0)),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: SvgPicture.asset('assets/svg/Shape.svg'),
-                            )
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: SvgPicture.asset('assets/svg/Shape.svg'),
+                              )
+                            ],
+                          ),
                         ),
+                        const Spacer(),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: const [
-                            SizedBox(height: 100),
                             SettingsTextField(
                               text: 'Start',
                             ),
@@ -58,9 +54,9 @@ class SettingsView extends StatelessWidget {
                             SettingsTextField(text: 'Ziel'),
                             SizedBox(height: 20),
                             SettingsTextField(text: 'Gehweg zur Haltestelle'),
-                            SizedBox(height: 20)
                           ],
                         ),
+                        const Spacer(),
                       ],
                     ),
                   ),
