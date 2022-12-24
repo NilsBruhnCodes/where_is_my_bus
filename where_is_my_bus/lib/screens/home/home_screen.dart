@@ -1,15 +1,20 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:where_is_my_bus/home/widgets/settings_view.dart';
-import 'package:where_is_my_bus/home/widgets/timer_countdown.dart';
+import 'package:provider/provider.dart';
+import 'package:where_is_my_bus/screens/home/widgets/settings_view.dart';
+import 'package:where_is_my_bus/screens/home/widgets/timer_countdown.dart';
+import 'package:where_is_my_bus/models/input_data.dart';
 
+import '../../services/departure_time.dart';
 import 'widgets/popups/cupertino_pop_up.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  int timeToDeparture;
+  HomeScreen(this.timeToDeparture);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late int _startCounter;
-  int _counter = 62;
+  late int _counter;
 
   void _decrementCounter() {
     setState(
@@ -42,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+
+    _counter = widget.timeToDeparture;
     _startCounter = _counter;
 
     Timer.periodic(
@@ -81,13 +88,16 @@ class _HomeScreenState extends State<HomeScreen>
               child: GestureDetector(
                   child: GestureDetector(
                 onTap: () {
-                  showDialog(
-                      builder: (context) {
-                        return SettingsView(context: context);
-                      },
-                      context: context);
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => SettingsView(
+                        context: context,
+                      ),
+                    ),
+                  );
                 },
-                child: SvgPicture.asset('assets/svg/hamburger.svg'),
+                child: SvgPicture.asset('assets/svg/settings-filled.svg'),
               ))),
           Positioned(
             bottom: 0,
