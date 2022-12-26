@@ -28,4 +28,32 @@ class TimeModel {
 
     return timeToDeparture;
   }
+
+  Future<dynamic> getStartStation() async {
+    NetworkHelper networkHelper = NetworkHelper(
+        '$url?origin=$startLocation&destination=$endLocation&mode=transit&key=$apiKey');
+    var timeTableData = await networkHelper.getData();
+    for (var steps in timeTableData['routes'][0]['legs'][0]['steps']) {
+      if (steps['transit_details'] == null) {
+      } else {
+        return steps['transit_details']['departure_stop']['name'];
+      }
+    }
+  }
+
+  Future<dynamic> getStopStation() async {
+    NetworkHelper networkHelper = NetworkHelper(
+        '$url?origin=$startLocation&destination=$endLocation&mode=transit&key=$apiKey');
+    var timeTableData = await networkHelper.getData();
+    bool alreadyTransitDetails = false;
+    dynamic buffer;
+    for (var steps in timeTableData['routes'][0]['legs'][0]['steps']) {
+      if (steps['transit_details'] == null) {
+      } else {
+        alreadyTransitDetails = true;
+        buffer = steps['transit_details']['arrival_stop']['name'];
+      }
+    }
+    return buffer;
+  }
 }

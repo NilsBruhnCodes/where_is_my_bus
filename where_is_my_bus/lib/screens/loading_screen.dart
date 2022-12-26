@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:where_is_my_bus/screens/home/home_screen.dart';
 
 import '../models/input_data.dart';
@@ -21,20 +22,31 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    getTime();
+    getTimeAndStartStation();
   }
 
-  void getTime() async {
+  void getTimeAndStartStation() async {
+    final prefs = await SharedPreferences.getInstance();
     TimeModel timeModel = TimeModel(
         context: context,
-        startLocation: Provider.of<InputData>(context, listen: false).startText,
-        endLocation: Provider.of<InputData>(context, listen: false).endText);
+        startLocation: prefs.getString('startText') ?? 'Berlin',
+        endLocation: prefs.getString('endText') ?? 'München');
     try {
-      var timeToDeparture = await timeModel.getDepartureTime();
+      int timeToDeparture = await timeModel.getDepartureTime();
+      while (timeToDeparture <= 0) {
+        timeToDeparture = await timeModel.getDepartureTime();
+      }
+      var startStation = await timeModel.getStartStation();
+      var stopStation = await timeModel.getStopStation();
+      print(timeToDeparture);
       Navigator.push(
         context,
         CupertinoPageRoute(builder: (context) {
-          return HomeScreen(timeToDeparture);
+          return HomeScreen(
+            timeToDeparture: timeToDeparture,
+            startStation: startStation,
+            stopStation: stopStation,
+          );
         }),
       );
     } catch (e) {
@@ -44,7 +56,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           return CupertinoAlertDialog(
             title: Text('Achtung!'),
             content: Text(
-                ' Wir konnten kein Ergebnis mit deinen Angaben finden. Bitte gebe deine Daten erneut ein und versuche es noche einmal.'),
+                ' Wir konnten kein Ergebnis mit deinen Angaben finden. Bitte gebe deine Daten erneut ein und überprüfe deine Internet Verbindung.'),
             actions: [
               CupertinoDialogAction(
                 child: Text('Okay'),

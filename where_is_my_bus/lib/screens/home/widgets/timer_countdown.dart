@@ -30,7 +30,7 @@ class TimerCountdown extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Column(
         children: [
-          Container(height: 180),
+          Container(height: 100),
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

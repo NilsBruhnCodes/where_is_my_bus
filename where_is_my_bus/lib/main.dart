@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:where_is_my_bus/models/input_data.dart';
+import 'package:where_is_my_bus/screens/home/home_screen.dart';
 import 'package:where_is_my_bus/screens/home/widgets/settings_view.dart';
 import 'package:where_is_my_bus/screens/loading_screen.dart';
 
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
     return ChangeNotifierProvider(
         create: (context) => InputData(),
         child: MaterialApp(
-          home: SettingsView(context: context),
+          home: LoadingScreen(),
         ));
   }
 }
