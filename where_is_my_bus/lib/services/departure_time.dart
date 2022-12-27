@@ -45,14 +45,14 @@ class TimeModel {
         '$url?origin=$startLocation&destination=$endLocation&mode=transit&key=$apiKey');
     var timeTableData = await networkHelper.getData();
     bool alreadyTransitDetails = false;
-    dynamic buffer;
+    dynamic bufferArrivalStation;
     for (var steps in timeTableData['routes'][0]['legs'][0]['steps']) {
       if (steps['transit_details'] == null) {
       } else {
         alreadyTransitDetails = true;
-        buffer = steps['transit_details']['arrival_stop']['name'];
+        bufferArrivalStation = steps['transit_details']['arrival_stop']['name'];
       }
     }
-    return buffer;
+    return bufferArrivalStation;
   }
 }

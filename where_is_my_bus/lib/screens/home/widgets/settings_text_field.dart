@@ -25,6 +25,7 @@ class SettingsTextField extends StatelessWidget {
         const SizedBox(height: 20),
         Material(
           child: TextField(
+            scrollPadding: const EdgeInsets.only(bottom: 40),
             onChanged: onChanged,
             decoration: InputDecoration(
                 border: const OutlineInputBorder(),

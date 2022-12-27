@@ -4,8 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:where_is_my_bus/constants.dart';
-import 'package:where_is_my_bus/screens/home/widgets/settings_view.dart';
+import 'package:where_is_my_bus/screens/home/widgets/settings_view1.dart';
 import 'package:where_is_my_bus/screens/home/widgets/timer_countdown.dart';
 
 import '../loading_screen.dart';
@@ -81,15 +82,15 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void dispose() {
-    controller.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
     super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed) {
+    final prefs = await SharedPreferences.getInstance();
+    if (state == AppLifecycleState.resumed &&
+        DateTime.now().millisecondsSinceEpoch -
+                (prefs.getInt('timeStampForRefresh') ?? 0) >
+            10) {
+      await prefs.setInt(
+          'timeStampForRefresh', DateTime.now().millisecondsSinceEpoch);
       Navigator.push(
         context,
         CupertinoPageRoute(builder: (context) => const LoadingScreen()),

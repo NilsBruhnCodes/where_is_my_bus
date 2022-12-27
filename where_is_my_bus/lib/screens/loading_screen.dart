@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:where_is_my_bus/screens/home/home_screen.dart';
 
 import '../services/departure_time.dart';
-import 'home/widgets/settings_view.dart';
+import 'home/widgets/settings_view1.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
