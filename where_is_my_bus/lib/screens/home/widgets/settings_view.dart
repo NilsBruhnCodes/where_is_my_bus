@@ -1,17 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:where_is_my_bus/constants.dart';
-import 'package:where_is_my_bus/screens/home/home_screen.dart';
 import 'package:where_is_my_bus/screens/home/widgets/settings_text_field.dart';
 import 'package:where_is_my_bus/screens/loading_screen.dart';
 
 import '../../../models/input_data.dart';
 
 class SettingsView extends StatelessWidget {
-  List textContent = [0, 0, 0];
+  List textContent = [0, 0];
   //0 is startText, 1 is endText, 2 is timeText
   final BuildContext context;
   late String? startText;
@@ -70,12 +67,12 @@ class SettingsView extends StatelessWidget {
                             context: context,
                             builder: ((context) {
                               return CupertinoAlertDialog(
-                                title: Text('Achtung'),
-                                content: Text(
+                                title: const Text('Achtung'),
+                                content: const Text(
                                     'Bitte gebe alle Daten ein und versuche es noche einmal.'),
                                 actions: [
                                   CupertinoDialogAction(
-                                    child: Text('Okay'),
+                                    child: const Text('Okay'),
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },

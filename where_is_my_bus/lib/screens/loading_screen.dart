@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:where_is_my_bus/screens/home/home_screen.dart';
 
-import '../models/input_data.dart';
 import '../services/departure_time.dart';
 import 'home/widgets/settings_view.dart';
 
@@ -38,7 +36,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       }
       var startStation = await timeModel.getStartStation();
       var stopStation = await timeModel.getStopStation();
-      print(timeToDeparture);
+
       Navigator.push(
         context,
         CupertinoPageRoute(builder: (context) {
@@ -54,12 +52,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
         context: context,
         builder: ((context) {
           return CupertinoAlertDialog(
-            title: Text('Achtung!'),
-            content: Text(
+            title: const Text('Achtung!'),
+            content: const Text(
                 ' Wir konnten kein Ergebnis mit deinen Angaben finden. Bitte gebe deine Daten erneut ein und überprüfe deine Internet Verbindung.'),
             actions: [
               CupertinoDialogAction(
-                child: Text('Okay'),
+                child: const Text('Okay'),
                 onPressed: () {
                   Navigator.push(
                     context,

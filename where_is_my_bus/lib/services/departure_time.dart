@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/home/widgets/settings_view.dart';
 import 'networking.dart';
 
 const apiKey = 'AIzaSyCZ8k5FShHO-t80iOonU3R85Jd9qDZipTM';
